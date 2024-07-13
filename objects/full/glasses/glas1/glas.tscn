@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://dop3n2b2oww6p"]
+
+[ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_7fkd7"]
+[ext_resource type="Texture2D" uid="uid://ue27cwx61auo" path="res://objects/full/glasses/glas1/glas.png" id="2_dfjxn"]
+[ext_resource type="Texture2D" uid="uid://borntaxsaeu0y" path="res://objects/full/glasses/glas1/glasMask.png" id="3_yagyg"]
+[ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_vir3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jeai2"]
+size = Vector2(119, 241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0hsv"]
+size = Vector2(120, 21)
+
+[node name="glas" type="Node2D"]
+
+[node name="vessel" parent="." instance=ExtResource("1_7fkd7")]
+
+[node name="collider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jeai2")
+
+[node name="draggableCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jeai2")
+
+[node name="outlineCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_jeai2")
+
+[node name="inCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(1, -109.5)
+shape = SubResource("RectangleShape2D_w0hsv")
+
+[node name="sprite" type="Sprite2D" parent="vessel"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_dfjxn")
+
+[node name="mask" type="Sprite2D" parent="vessel"]
+clip_children = 1
+scale = Vector2(10, 10)
+texture = ExtResource("3_yagyg")
+
+[node name="ziza" parent="vessel/mask" instance=ExtResource("4_vir3c")]
+position = Vector2(0.1, 24.6)
+scale = Vector2(0.725, 0.705)

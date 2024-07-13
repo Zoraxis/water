@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkm25xtlw1vdl"]
+
+[ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_qfpx7"]
+[ext_resource type="Texture2D" uid="uid://ujvtu3g0kxog" path="res://objects/full/glasses/beach/Beach.png" id="2_6bemk"]
+[ext_resource type="Texture2D" uid="uid://bioq6ujl4sgqd" path="res://objects/full/glasses/beach/BeachMask.png" id="3_5p57h"]
+[ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_aclht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4brg"]
+size = Vector2(13, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wbet3"]
+size = Vector2(90, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntg14"]
+size = Vector2(129, 200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l4pi"]
+size = Vector2(130, 200)
+
+[node name="beach" type="Node2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="glas" parent="." instance=ExtResource("1_qfpx7")]
+
+[node name="collider" type="CollisionShape2D" parent="glas"]
+position = Vector2(-0.145, -2.715)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_f4brg")
+
+[node name="inCollider" type="CollisionShape2D" parent="glas"]
+position = Vector2(-0.145, -98.215)
+shape = SubResource("RectangleShape2D_wbet3")
+
+[node name="draggableCollider" type="CollisionShape2D" parent="glas"]
+position = Vector2(-0.645, -2.715)
+shape = SubResource("RectangleShape2D_ntg14")
+
+[node name="outlineCollider" type="CollisionShape2D" parent="glas"]
+position = Vector2(-0.145, -2.715)
+shape = SubResource("RectangleShape2D_0l4pi")
+
+[node name="sprite" type="Sprite2D" parent="glas"]
+position = Vector2(0, -3)
+scale = Vector2(10, 10)
+texture = ExtResource("2_6bemk")
+
+[node name="mask" type="Sprite2D" parent="glas"]
+clip_children = 1
+position = Vector2(0, -28)
+scale = Vector2(10, 10)
+texture = ExtResource("3_5p57h")
+
+[node name="ziza" parent="glas/mask" instance=ExtResource("4_aclht")]
+modulate = Color(0.572549, 0.427451, 0.172549, 1)
+position = Vector2(-5.96046e-08, 25.6)

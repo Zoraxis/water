@@ -1,56 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://dop3n2b2oww6p"]
+[gd_scene load_steps=4 format=3 uid="uid://cs02xald28vpd"]
 
-[ext_resource type="Script" path="res://objects/full/glas1/vessel.gd" id="1_fg0ey"]
-[ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="2_bum1x"]
-[ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="2_uepes"]
-[ext_resource type="Texture2D" uid="uid://ue27cwx61auo" path="res://objects/full/glas1/glas.png" id="3_61qky"]
-[ext_resource type="Texture2D" uid="uid://borntaxsaeu0y" path="res://objects/full/glas1/glasMask.png" id="4_3lnwi"]
-[ext_resource type="PackedScene" uid="uid://cx1vbwg43abuk" path="res://objects/simple/draggable/draggable.tscn" id="4_ns470"]
+[ext_resource type="Script" path="res://objects/complex/vessel/vessel.gd" id="1_yrg4c"]
+[ext_resource type="PackedScene" uid="uid://qvdo5cx7fye" path="res://objects/simple/outline/outlineTrigger.tscn" id="5_w0pre"]
+[ext_resource type="PackedScene" uid="uid://cx1vbwg43abuk" path="res://objects/simple/draggable/draggable.tscn" id="6_codwj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgrgt"]
-size = Vector2(12, 2)
+[node name="vessel" type="RigidBody2D" groups=["DRAG"]]
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_yrg4c")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5a3jk"]
-size = Vector2(12, 24)
+[node name="vesselHolder" type="Node2D" parent="."]
 
-[node name="vessel" type="StaticBody2D"]
-script = ExtResource("1_fg0ey")
-
-[node name="flow" parent="." instance=ExtResource("2_bum1x")]
-position = Vector2(-1, -111)
-
-[node name="in" type="Area2D" parent="."]
+[node name="in" type="Area2D" parent="vesselHolder"]
 scale = Vector2(10, 10)
 collision_layer = 0
 collision_mask = 2
 
-[node name="collider" type="CollisionShape2D" parent="in"]
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_qgrgt")
-debug_color = Color(0, 0.643137, 0.270588, 1)
-
-[node name="glas" type="Sprite2D" parent="."]
+[node name="outlineTrigger" parent="vesselHolder" instance=ExtResource("5_w0pre")]
 scale = Vector2(10, 10)
-texture = ExtResource("3_61qky")
 
-[node name="mask_ziza" type="Sprite2D" parent="."]
-clip_children = 1
-position = Vector2(-2.38419e-07, 1.90735e-06)
-scale = Vector2(10, 10)
-texture = ExtResource("4_3lnwi")
+[node name="draggable" parent="vesselHolder" instance=ExtResource("6_codwj")]
 
-[node name="ziza" parent="mask_ziza" instance=ExtResource("2_uepes")]
-modulate = Color(0.572549, 0.427451, 0.172549, 1)
-position = Vector2(0.2, 18.03)
-scale = Vector2(1, 0.45)
-
-[node name="draggable" parent="." instance=ExtResource("4_ns470")]
-
-[node name="collider" type="CollisionShape2D" parent="draggable"]
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_5a3jk")
-debug_color = Color(0, 0.6, 0.701961, 0.160784)
-
-[connection signal="body_entered" from="in" to="." method="_on_in_body_entered"]
-[connection signal="body_exited" from="in" to="." method="_on_in_body_exited"]
-[connection signal="input_event" from="draggable" to="." method="_on_draggable_input_event"]
+[connection signal="body_entered" from="vesselHolder/in" to="." method="_on_in_body_entered"]
+[connection signal="body_exited" from="vesselHolder/in" to="." method="_on_in_body_exited"]
+[connection signal="input_event" from="vesselHolder/draggable" to="." method="_on_draggable_input_event"]

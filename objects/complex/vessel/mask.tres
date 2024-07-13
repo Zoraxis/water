@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cku5pc8eup3gr"]
-
-[ext_resource type="Shader" path="res://objects/complex/vessel/mask.gdshader" id="1_2itg3"]
-
-[resource]
-shader = ExtResource("1_2itg3")
-shader_parameter/holeCenter = null
-shader_parameter/holeRadius = null

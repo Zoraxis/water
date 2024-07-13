@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj16cj22h1ba3"]
+
+[ext_resource type="Script" path="res://objects/full/glasses/glasSpawner/glasSpawner.gd" id="1_x3o3x"]
+
+[node name="glasSpawner" type="Area2D"]
+top_level = true
+script = ExtResource("1_x3o3x")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

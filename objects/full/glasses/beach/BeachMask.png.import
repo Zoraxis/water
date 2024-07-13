@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ue27cwx61auo"
-path="res://.godot/imported/glas.png-23549b279bba14def188b67c5efd0cd5.ctex"
+uid="uid://bioq6ujl4sgqd"
+path="res://.godot/imported/BeachMask.png-61cc09a5c5d5d5952003464b71368bea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/full/glas1/glas.png"
-dest_files=["res://.godot/imported/glas.png-23549b279bba14def188b67c5efd0cd5.ctex"]
+source_file="res://objects/full/glasses/beach/BeachMask.png"
+dest_files=["res://.godot/imported/BeachMask.png-61cc09a5c5d5d5952003464b71368bea.ctex"]
 
 [params]
 

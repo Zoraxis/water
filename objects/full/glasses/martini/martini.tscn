@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwtls3rgv8du3"]
+
+[ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_s0leg"]
+[ext_resource type="Texture2D" uid="uid://pw7r6itif75k" path="res://objects/full/glasses/martini/Martini.png" id="2_77bjs"]
+[ext_resource type="Texture2D" uid="uid://qy5mcpkywkfl" path="res://objects/full/glasses/martini/MartiniMask.png" id="3_id0b7"]
+[ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_1xvsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tk3j6"]
+size = Vector2(200, 220)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkle2"]
+size = Vector2(200, 18)
+
+[node name="martini" type="Node2D"]
+
+[node name="vessel" parent="." instance=ExtResource("1_s0leg")]
+
+[node name="collider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_tk3j6")
+
+[node name="outlineCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_tk3j6")
+
+[node name="draggableCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(-5, 5)
+shape = SubResource("RectangleShape2D_tk3j6")
+
+[node name="inCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(-5, -95)
+shape = SubResource("RectangleShape2D_bkle2")
+
+[node name="sprite" type="Sprite2D" parent="vessel"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_77bjs")
+
+[node name="mask" type="Sprite2D" parent="vessel"]
+clip_children = 1
+position = Vector2(0, -60)
+scale = Vector2(10, 10)
+texture = ExtResource("3_id0b7")
+
+[node name="ziza" parent="vessel/mask" instance=ExtResource("4_1xvsy")]
+modulate = Color(0.572549, 0.427451, 0.172549, 1)
+position = Vector2(0.6, 26.4)

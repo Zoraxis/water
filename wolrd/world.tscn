@@ -1,12 +1,125 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdiutpfaop5uu"]
+[gd_scene load_steps=13 format=3 uid="uid://bdiutpfaop5uu"]
 
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="1_6fxvd"]
-[ext_resource type="PackedScene" uid="uid://dop3n2b2oww6p" path="res://objects/complex/vessel/vessel.tscn" id="2_lxecv"]
+[ext_resource type="Texture2D" uid="uid://b8la36084ph1o" path="res://wolrd/blueprint.png" id="1_wh7um"]
+[ext_resource type="PackedScene" uid="uid://dop3n2b2oww6p" path="res://objects/full/glasses/glas1/glas.tscn" id="2_lxecv"]
+[ext_resource type="PackedScene" uid="uid://cj16cj22h1ba3" path="res://objects/full/glasses/glasSpawner/glasSpawner.tscn" id="4_2a1n7"]
+[ext_resource type="PackedScene" uid="uid://bx83ngksndfxs" path="res://objects/simple/placable/placable.tscn" id="4_xin7v"]
+[ext_resource type="Script" path="res://canvas/money/moneyLabel.gd" id="5_wje6a"]
+[ext_resource type="PackedScene" uid="uid://bkm25xtlw1vdl" path="res://objects/full/glasses/beach/beach.tscn" id="6_ysfan"]
+[ext_resource type="PackedScene" uid="uid://ct1xds3kkyv44" path="res://objects/full/glasses/cognac/cognac.tscn" id="7_f3ltc"]
+[ext_resource type="PackedScene" uid="uid://bwtls3rgv8du3" path="res://objects/full/glasses/martini/martini.tscn" id="8_fg0uh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2q7"]
+size = Vector2(197, 326)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gepth"]
+size = Vector2(169.5, 184.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81mg3"]
+size = Vector2(5.9, 11.9)
 
 [node name="world" type="Node2D"]
 
-[node name="flow" parent="." instance=ExtResource("1_6fxvd")]
-position = Vector2(559, 233)
+[node name="LEVEL" type="Node" parent="."]
 
-[node name="vessel" parent="." instance=ExtResource("2_lxecv")]
-position = Vector2(562, 407)
+[node name="Blueprint" type="Sprite2D" parent="LEVEL"]
+modulate = Color(1, 1, 1, 0.462745)
+position = Vector2(958, 543)
+texture = ExtResource("1_wh7um")
+
+[node name="placables" type="Node2D" parent="LEVEL/Blueprint"]
+position = Vector2(-958, -543)
+
+[node name="placable" parent="LEVEL/Blueprint/placables" instance=ExtResource("4_xin7v")]
+
+[node name="collider" type="CollisionShape2D" parent="LEVEL/Blueprint/placables/placable"]
+position = Vector2(992.5, 751)
+shape = SubResource("RectangleShape2D_qt2q7")
+
+[node name="colliderOrder1" type="CollisionShape2D" parent="LEVEL/Blueprint/placables/placable"]
+position = Vector2(1738.25, 378.5)
+shape = SubResource("RectangleShape2D_gepth")
+
+[node name="colliderOrder2" type="CollisionShape2D" parent="LEVEL/Blueprint/placables/placable"]
+position = Vector2(1753, 619.625)
+shape = SubResource("RectangleShape2D_gepth")
+
+[node name="colliderOrder3" type="CollisionShape2D" parent="LEVEL/Blueprint/placables/placable"]
+position = Vector2(1750, 907.25)
+shape = SubResource("RectangleShape2D_gepth")
+
+[node name="flow" parent="LEVEL" instance=ExtResource("1_6fxvd")]
+position = Vector2(502, 353)
+
+[node name="glasSpawner3" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+position = Vector2(1147.63, 413)
+glass = ExtResource("2_lxecv")
+
+[node name="glas" parent="LEVEL/glasSpawner3" instance=ExtResource("2_lxecv")]
+position = Vector2(-1.48499, -18)
+scale = Vector2(0.5, 0.5)
+
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner3"]
+position = Vector2(-0.984985, -18.5)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_81mg3")
+debug_color = Color(0, 0.6, 0.701961, 0.160784)
+
+[node name="glasSpawner2" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+position = Vector2(1232.1, 413)
+glass = ExtResource("6_ysfan")
+
+[node name="beach" parent="LEVEL/glasSpawner2" instance=ExtResource("6_ysfan")]
+position = Vector2(-0.530029, -26)
+scale = Vector2(0.5, 0.5)
+
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner2"]
+position = Vector2(-0.530029, -26.5)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_81mg3")
+debug_color = Color(0, 0.6, 0.701961, 0.160784)
+
+[node name="glasSpawner4" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+position = Vector2(1330.81, 413)
+glass = ExtResource("7_f3ltc")
+
+[node name="cognac" parent="LEVEL/glasSpawner4" instance=ExtResource("7_f3ltc")]
+position = Vector2(-1.45496, -20)
+scale = Vector2(0.7, 0.7)
+
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner4"]
+position = Vector2(-0.984985, -18.5)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_81mg3")
+debug_color = Color(0, 0.6, 0.701961, 0.160784)
+
+[node name="glasSpawner5" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+position = Vector2(1426.11, 413)
+glass = ExtResource("8_fg0uh")
+
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner5"]
+position = Vector2(-0.984985, -18.5)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_81mg3")
+debug_color = Color(0, 0.6, 0.701961, 0.160784)
+
+[node name="martini" parent="LEVEL/glasSpawner5" instance=ExtResource("8_fg0uh")]
+position = Vector2(6.89001, -19)
+scale = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="moneyLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.797
+anchor_right = 1.0
+anchor_bottom = 0.118
+offset_left = -1.24011
+offset_top = -6.0
+offset_right = -313.0
+offset_bottom = -102.44
+scale = Vector2(4.845, 4.845)
+text = "10"
+horizontal_alignment = 2
+script = ExtResource("5_wje6a")

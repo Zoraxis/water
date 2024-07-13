@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7qrxu04cru88"
-path="res://.godot/imported/stakan.png-49a1f21535c93bcddd83039a12dec6f9.ctex"
+uid="uid://cnhlxf0ljlrax"
+path="res://.godot/imported/Cognac.png-0f5869dd5c8977d233b9da23eadda9e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/full/beer_glas1/stakan.png"
-dest_files=["res://.godot/imported/stakan.png-49a1f21535c93bcddd83039a12dec6f9.ctex"]
+source_file="res://objects/full/glasses/cognac/Cognac.png"
+dest_files=["res://.godot/imported/Cognac.png-0f5869dd5c8977d233b9da23eadda9e2.ctex"]
 
 [params]
 
