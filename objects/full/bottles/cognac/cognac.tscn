@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb13f6m32e1wo"]
+
+[ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_lsje3"]
+[ext_resource type="Script" path="res://objects/complex/vessel/bottle.gd" id="2_gspra"]
+[ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="2_hcjf0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
+size = Vector2(125, 322)
+
+[node name="cognac" type="Node2D"]
+
+[node name="vessel" parent="." instance=ExtResource("1_lsje3")]
+script = ExtResource("2_gspra")
+
+[node name="collider" type="CollisionShape2D" parent="vessel"]
+shape = SubResource("RectangleShape2D_ffrxc")
+
+[node name="outlineCollider" type="CollisionShape2D" parent="vessel"]
+shape = SubResource("RectangleShape2D_ffrxc")
+
+[node name="draggableCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(-7.5, 11)
+shape = SubResource("RectangleShape2D_ffrxc")
+
+[node name="sprite" type="Sprite2D" parent="vessel"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_hcjf0")

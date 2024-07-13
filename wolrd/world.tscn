@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdiutpfaop5uu"]
+[gd_scene load_steps=14 format=3 uid="uid://bdiutpfaop5uu"]
 
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="1_6fxvd"]
 [ext_resource type="Texture2D" uid="uid://b8la36084ph1o" path="res://wolrd/blueprint.png" id="1_wh7um"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bkm25xtlw1vdl" path="res://objects/full/glasses/beach/beach.tscn" id="6_ysfan"]
 [ext_resource type="PackedScene" uid="uid://ct1xds3kkyv44" path="res://objects/full/glasses/cognac/cognac.tscn" id="7_f3ltc"]
 [ext_resource type="PackedScene" uid="uid://bwtls3rgv8du3" path="res://objects/full/glasses/martini/martini.tscn" id="8_fg0uh"]
+[ext_resource type="PackedScene" uid="uid://cb13f6m32e1wo" path="res://objects/full/bottles/cognac/cognac.tscn" id="10_jwugl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2q7"]
 size = Vector2(197, 326)
@@ -123,3 +124,7 @@ scale = Vector2(4.845, 4.845)
 text = "10"
 horizontal_alignment = 2
 script = ExtResource("5_wje6a")
+
+[node name="cognac" parent="." instance=ExtResource("10_jwugl")]
+z_index = 1
+position = Vector2(791, 695)

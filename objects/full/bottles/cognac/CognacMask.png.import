@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j8tx4m1hjr63"
-path="res://.godot/imported/Cognac.png-9aeb2d4acf973bbbf4aa84b2598da547.ctex"
+uid="uid://cory0h1u2mj86"
+path="res://.godot/imported/CognacMask.png-2ae3f4cfed02e1f7035d234637d67bd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/full/bottles/cognac/Cognac.png"
-dest_files=["res://.godot/imported/Cognac.png-9aeb2d4acf973bbbf4aa84b2598da547.ctex"]
+source_file="res://objects/full/bottles/cognac/CognacMask.png"
+dest_files=["res://.godot/imported/CognacMask.png-2ae3f4cfed02e1f7035d234637d67bd5.ctex"]
 
 [params]
 
