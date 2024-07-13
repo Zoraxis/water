@@ -11,6 +11,9 @@ func set_color(color: Color):
 
 func start_pouring():
 	self.visible = true
-
+	
 func stop_pouring():
 	self.visible = false
+	
+func get_color():
+	return $animation.modulate

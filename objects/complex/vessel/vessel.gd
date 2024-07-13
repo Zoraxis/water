@@ -26,10 +26,10 @@ func _process(delta):
 	if $vesselHolder/mask/ziza:
 		if $vesselHolder/mask/ziza.state == true:
 			filled = 0.5
-			
 		
 
 func _on_in_body_entered(body):
+	$vesselHolder/mask.modulate = body.get_color()
 	$vesselHolder/mask/ziza.toggle(true)
 
 func _on_in_body_exited(body):

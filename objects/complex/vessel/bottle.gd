@@ -10,14 +10,16 @@ var braking = 0;
 var placable = false
 var pickUpOffset = Vector2(0, 0)
 var pickUpPos = Vector2(0, 0)
-var liquid_color: Color = Color.BLUE
+var liquid_color: Color = Color.SADDLE_BROWN
 
 func pour_liquid(flow):
 	flow.set_color(liquid_color)
 	flow.start_pouring()
+	emit_signal("pour_started", liquid_color) 
 	
 func stop_pouring(flow):
 	flow.stop_pouring()
+	emit_signal("pour_stopped")
 
 func _ready():
 	$draggableCollider.reparent($vesselHolder/draggable)
@@ -43,7 +45,6 @@ func _physics_process(delta):
 		if $vesselHolder.rotation > 1.4:
 			pour_liquid($flow)
 			
-		
 	else:
 		if $vesselHolder.rotation < 0:
 			$vesselHolder.rotation += delta * 1.5
