@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb13f6m32e1wo"]
+[gd_scene load_steps=6 format=3 uid="uid://cb13f6m32e1wo"]
 
 [ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_lsje3"]
 [ext_resource type="Script" path="res://objects/complex/vessel/bottle.gd" id="2_gspra"]
 [ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="2_hcjf0"]
+[ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="4_hsf8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
 size = Vector2(125, 322)
@@ -23,5 +24,9 @@ position = Vector2(-7.5, 11)
 shape = SubResource("RectangleShape2D_ffrxc")
 
 [node name="sprite" type="Sprite2D" parent="vessel"]
+z_index = 1
 scale = Vector2(10, 10)
 texture = ExtResource("2_hcjf0")
+
+[node name="flow" parent="vessel" instance=ExtResource("4_hsf8e")]
+position = Vector2(76, 56)

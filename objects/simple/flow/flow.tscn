@@ -7,6 +7,7 @@
 size = Vector2(3, 24)
 
 [node name="flow" type="StaticBody2D"]
+visible = false
 scale = Vector2(7, 4.667)
 collision_layer = 2
 collision_mask = 0

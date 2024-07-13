@@ -10,11 +10,14 @@ var braking = 0;
 var placable = false
 var pickUpOffset = Vector2(0, 0)
 var pickUpPos = Vector2(0, 0)
-var liquid_color: Color = Color.RED
+var liquid_color: Color = Color.BLUE
 
 func pour_liquid(flow):
 	flow.set_color(liquid_color)
 	flow.start_pouring()
+	
+func stop_pouring(flow):
+	flow.stop_pouring()
 
 func _ready():
 	$draggableCollider.reparent($vesselHolder/draggable)
@@ -35,14 +38,18 @@ func _physics_process(delta):
 	if Input.is_action_pressed("action_alt") and dragged:
 		if $vesselHolder.rotation > PI * -0.11:
 			$vesselHolder.rotation -= delta
-		if get_parent().rotation < PI * 0.5:
-			get_parent().rotation += delta * 3
+		if $vesselHolder.rotation < PI * 0.5:
+			$vesselHolder.rotation += delta * 3
+		if $vesselHolder.rotation > 1.4:
+			pour_liquid($flow)
+			
 		
 	else:
 		if $vesselHolder.rotation < 0:
 			$vesselHolder.rotation += delta * 1.5
-		if get_parent().rotation > 0:
-			get_parent().rotation -= delta * 4
+		if $vesselHolder.rotation > 0:
+			$vesselHolder.rotation -= delta * 4
+			stop_pouring($flow)
 	
 func _on_draggable_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_released():
