@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cx1vbwg43abuk"]
+
+[node name="draggable" type="Area2D"]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
