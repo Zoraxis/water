@@ -36,6 +36,8 @@ func timeline():
 	await U.delay(3)
 	newOrder();
 	await U.delay(3)
+	newOrder();
+	await U.delay(3)
 
 func newOrder():
 	var appendedOrder = futureOrders[0]
@@ -48,3 +50,10 @@ func addOrder(order):
 	order_instance.setNewText(str(order["text"]))
 	order_instance.position = Vector2(350 * (orders.size() - 1), -200)
 	add_child(order_instance)
+	
+func resolveOrder(color):
+	for i in range(orders.size()):
+		if(orders[i].is_equal_approx(color)):
+			print("equal")
+		else:
+			print("not_equal")
