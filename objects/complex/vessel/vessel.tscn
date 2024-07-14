@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs02xald28vpd"]
+[gd_scene load_steps=6 format=3 uid="uid://cs02xald28vpd"]
 
 [ext_resource type="Script" path="res://objects/complex/vessel/vessel.gd" id="1_yrg4c"]
+[ext_resource type="AudioStream" uid="uid://dei8srm7hukqn" path="res://canvas/simple/audio/pouring.wav" id="4_lcph8"]
+[ext_resource type="AudioStream" uid="uid://7mkke54fav2m" path="res://canvas/simple/audio/splash.wav" id="5_7kx0m"]
 [ext_resource type="PackedScene" uid="uid://qvdo5cx7fye" path="res://objects/simple/outline/outlineTrigger.tscn" id="5_w0pre"]
 [ext_resource type="PackedScene" uid="uid://cx1vbwg43abuk" path="res://objects/simple/draggable/draggable.tscn" id="6_codwj"]
 
@@ -21,6 +23,12 @@ collision_mask = 2
 scale = Vector2(10, 10)
 
 [node name="draggable" parent="vesselHolder" instance=ExtResource("6_codwj")]
+
+[node name="pour" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lcph8")
+
+[node name="splash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7kx0m")
 
 [connection signal="body_entered" from="vesselHolder/in" to="." method="_on_in_body_entered"]
 [connection signal="body_exited" from="vesselHolder/in" to="." method="_on_in_body_exited"]

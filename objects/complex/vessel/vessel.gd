@@ -7,6 +7,8 @@ extends RigidBody2D
 var filled = 0
 var flowEntered = null
 var isOnNapkin = false
+@onready var pour = $pour
+@onready var splash = $splash
 
 func _ready():
 	$draggableCollider.reparent($vesselHolder/draggable)
@@ -38,6 +40,7 @@ func _process(delta):
 
 func _on_in_body_entered(body):
 	if body.is_in_group("FLOW") and body != $vesselHolder/flow:
+		pour.play()
 		if $vesselHolder/mask.modulate == Color.WHITE:
 			$vesselHolder/mask.modulate = body.color
 		flowEntered = body
@@ -54,6 +57,7 @@ func drag_stop():
 func _physics_process(delta):
 	if Input.is_action_pressed("action_alt") and $vesselHolder/draggable.dragged:
 		if $vesselHolder/mask/ziza.rotation > PI * -0.11:
+			splash.play()
 			$vesselHolder/mask/ziza.rotation -= delta
 		if get_parent().rotation < PI * 0.5:
 			get_parent().rotation += delta * 3
