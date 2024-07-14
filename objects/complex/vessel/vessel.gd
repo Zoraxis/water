@@ -20,6 +20,8 @@ func _ready():
 	$collider.scale = size
 
 func _process(delta):
+	if Input.is_action_pressed("middleMouse"):
+		G.current_hp = 6
 	if flowEntered != null:
 		if flowEntered.visible == true and filled < 1.0:
 			filled += delta * .5
