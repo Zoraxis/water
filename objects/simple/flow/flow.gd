@@ -10,10 +10,12 @@ func set_color(color: Color):
 	$animation.modulate = color
 
 func start_pouring():
-	self.visible = true
-	
+	self.set_process(true)
+	visible = true
+ 
 func stop_pouring():
-	self.visible = false
+	self.set_process(false)
+	visible = false
 	
 func get_color():
 	return $animation.modulate

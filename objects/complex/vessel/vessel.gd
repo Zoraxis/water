@@ -29,10 +29,14 @@ func _process(delta):
 		
 
 func _on_in_body_entered(body):
-	$vesselHolder/mask.modulate = body.get_color()
-	$vesselHolder/mask/ziza.toggle(true)
+	if body.is_in_group("FLOW") and body.visible == true:
+		$vesselHolder/mask.modulate = body.get_color()
+		$vesselHolder/mask/ziza.toggle(true)
+	else:
+		$vesselHolder/mask/ziza.toggle(false)
 
 func _on_in_body_exited(body):
+ #if body.is_in_group("FLOW"):
 	$vesselHolder/mask/ziza.toggle(false)
 
 func _physics_process(delta):

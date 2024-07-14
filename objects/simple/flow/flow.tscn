@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0m5r"]
 size = Vector2(3, 24)
 
-[node name="flow" type="StaticBody2D"]
+[node name="flow" type="StaticBody2D" groups=["FLOW"]]
 visible = false
 scale = Vector2(7, 4.667)
 collision_layer = 2

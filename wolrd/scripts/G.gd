@@ -6,5 +6,15 @@ func updateMoney(value):
 	money += value
 
 var orders = [
-	Order("sth strong")
+	{
+		"text": "sth strong",
+		"strength": 3,
+	}
+]
+
+var futureOrders = [
+	{
+		"text": "sth very strong",
+		"strength": 3,
+	}
 ]
