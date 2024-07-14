@@ -21,7 +21,7 @@ size = Vector2(130, 200)
 [node name="beach" type="Node2D"]
 scale = Vector2(0.25, 0.25)
 
-[node name="glas" parent="." instance=ExtResource("1_qfpx7")]
+[node name="glas" parent="." groups=["GLASS"] instance=ExtResource("1_qfpx7")]
 
 [node name="flow" parent="glas" instance=ExtResource("2_he4jf")]
 position = Vector2(80, -104)

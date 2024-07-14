@@ -14,7 +14,7 @@ size = Vector2(90, 150)
 
 [node name="cognac2" type="Node2D"]
 
-[node name="vessel" parent="." instance=ExtResource("1_ihlkf")]
+[node name="vessel" parent="." groups=["GLASS"] instance=ExtResource("1_ihlkf")]
 size = Vector2(0.75, 0.75)
 
 [node name="flow" parent="vessel" instance=ExtResource("2_bukap")]

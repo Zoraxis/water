@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj16cj22h1ba3"]
+
+[ext_resource type="Script" path="res://objects/complex/spawner/spawner.gd" id="1_x3o3x"]
+[ext_resource type="Texture2D" uid="uid://cr2iut4gk0u1r" path="res://objects/complex/spawner/stand.png" id="2_7eukw"]
+[ext_resource type="PackedScene" uid="uid://qvdo5cx7fye" path="res://objects/simple/outline/outlineTrigger.tscn" id="3_iokh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5b4m"]
+size = Vector2(96, 184)
+
+[node name="glasSpawner" type="Area2D"]
+top_level = true
+z_index = 1
+script = ExtResource("1_x3o3x")
+
+[node name="Stand" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_7eukw")
+
+[node name="outlineTrigger" parent="Stand" instance=ExtResource("3_iokh4")]
+scale = Vector2(0.125, 0.125)
+
+[node name="collider" type="CollisionShape2D" parent="Stand/outlineTrigger"]
+shape = SubResource("RectangleShape2D_e5b4m")
+debug_color = Color(0, 0.6, 0.701961, 0.109804)
+
+[node name="price" type="Label" parent="."]
+z_index = 1
+offset_left = 17.0
+offset_top = -83.0
+offset_right = 57.0
+offset_bottom = -63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "1
+"
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e5b4m")
+debug_color = Color(0, 0.6, 0.701961, 0.109804)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

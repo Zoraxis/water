@@ -8,14 +8,14 @@ var placable = false
 
 func _physics_process(delta):
 	if dragged:
-		print(get_parent().get_parent().name)
 		get_parent().get_parent().get_parent().position = get_global_mouse_position() + pickUpOffset
 
 func _on_input_event(viewport, event, shape_idx):
-	print()
 	if event is InputEventMouseButton and event.as_text().begins_with("Left") and event.is_released():
 		dragged = false
 		G.dragged = false
+		if get_parent().get_parent().is_in_group("GLASS"):
+			get_parent().get_parent().drag_stop()
 		if not placable:
 			get_parent().get_parent().get_parent().position = pickUpPos
 			placable = true

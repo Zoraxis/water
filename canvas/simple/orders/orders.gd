@@ -7,22 +7,22 @@ var futureOrders = [
 	{
 		"text": "Blue",
 		"color": Color.BLUE,
-		"strength": 3,
+		"money": 3,
 	},
 		{
 		"text": "Brown",
 		"color": Color.BROWN,
-		"strength": 3,
+		"money": 3,
 	},
 	{
 		"text": "Yellow",
 		"color": Color.YELLOW,
-		"strength": 3,
+		"money": 3,
 	},
 	{
 		"text": "White",
 		"color": Color.WHITE,
-		"strength": 3,
+		"money": 3,
 	}
 ]
 func _ready():
@@ -49,11 +49,20 @@ func addOrder(order):
 	var order_instance = order_scene.instantiate()
 	order_instance.setNewText(str(order["text"]))
 	order_instance.position = Vector2(350 * (orders.size() - 1), -200)
+	order["instance"] = order_instance
 	add_child(order_instance)
 	
-func resolveOrder(color):
+func resolveOrder(color, object):
 	for i in range(orders.size()):
-		if(orders[i].is_equal_approx(color)):
-			print("equal")
-		else:
-			print("not_equal")
+		if(U.colorCompare(orders[i].color as Color,color, 1)):
+			G.updateMoney(orders[i].money)
+			orders[i]["instance"].selfDestruct()
+			for j in range(i, orders.size()):
+				orders[j]["instance"].moveLeft()
+			orders.remove_at(i)
+			await U.delay(0.2)
+			object.queue_free()
+			return
+
+	await U.delay(0.2)
+	object.queue_free()

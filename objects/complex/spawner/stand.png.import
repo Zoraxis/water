@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr2iut4gk0u1r"
-path="res://.godot/imported/stand.png-62b08481532023c7c88b0fe23aa5706d.ctex"
+path="res://.godot/imported/stand.png-e931a26981fa107917af97ac613b9740.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/full/table/stand.png"
-dest_files=["res://.godot/imported/stand.png-62b08481532023c7c88b0fe23aa5706d.ctex"]
+source_file="res://objects/complex/spawner/stand.png"
+dest_files=["res://.godot/imported/stand.png-e931a26981fa107917af97ac613b9740.ctex"]
 
 [params]
 

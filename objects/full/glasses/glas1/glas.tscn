@@ -14,7 +14,7 @@ size = Vector2(120, 21)
 
 [node name="glas" type="Node2D"]
 
-[node name="vessel" parent="." instance=ExtResource("1_7fkd7")]
+[node name="vessel" parent="." groups=["GLASS"] instance=ExtResource("1_7fkd7")]
 
 [node name="flow" parent="vessel" instance=ExtResource("2_atcmy")]
 position = Vector2(85, -122)
