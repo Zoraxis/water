@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://cx1vbwg43abuk"]
+[gd_scene load_steps=2 format=3 uid="uid://cx1vbwg43abuk"]
+
+[ext_resource type="Script" path="res://objects/simple/draggable/draggable.gd" id="1_y2fyn"]
 
 [node name="draggable" type="Area2D"]
+script = ExtResource("1_y2fyn")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

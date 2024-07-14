@@ -5,7 +5,7 @@ extends Area2D
 var removed = false
 
 func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.is_pressed() and not removed:
+	if event is InputEventMouseButton and event.as_text().begins_with("Left") and event.is_pressed() and not removed:
 		G.updateMoney(-1)
 		removed = true
 		await U.delay(0.3)
