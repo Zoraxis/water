@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @export var capacity = 1.0
 @export var size = Vector2(0.5, 0.5)
+@export var typeNum = 0
 
 var filled = 0
 var flowEntered = null

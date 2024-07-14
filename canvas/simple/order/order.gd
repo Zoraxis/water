@@ -6,10 +6,13 @@ var textDelay = 0
 var textmaxDelay = 1
 
 var movement = false
+var type = null
+var typeNum = 0
 
 var destroying = false
 
 func _ready():
+	$type.texture = type
 	$moving.targetYPos = 300
 
 func setNewText(newText):
