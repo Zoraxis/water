@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdiutpfaop5uu"]
+[gd_scene load_steps=21 format=3 uid="uid://bdiutpfaop5uu"]
 
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="1_6fxvd"]
 [ext_resource type="Texture2D" uid="uid://b8la36084ph1o" path="res://wolrd/blueprint.png" id="1_wh7um"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dehmqpvku2oow" path="res://objects/full/bottles/champange/champagne.tscn" id="12_rtlnj"]
 [ext_resource type="PackedScene" uid="uid://d2y37jqpb1e3x" path="res://objects/full/bottles/martini/martini.tscn" id="13_tosns"]
 [ext_resource type="PackedScene" uid="uid://cnvamg8880m02" path="res://objects/full/bottles/wine/wine.tscn" id="14_6syxd"]
+[ext_resource type="Texture2D" uid="uid://cp44wk6gas2ns" path="res://objects/full/tap/tap.png" id="15_21yrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2q7"]
 size = Vector2(197, 326)
@@ -55,10 +56,6 @@ shape = SubResource("RectangleShape2D_gepth")
 [node name="colliderOrder3" type="CollisionShape2D" parent="LEVEL/Blueprint/placables/placable"]
 position = Vector2(1750, 907.25)
 shape = SubResource("RectangleShape2D_gepth")
-
-[node name="flow" parent="LEVEL" instance=ExtResource("1_6fxvd")]
-visible = true
-position = Vector2(1399, 712)
 
 [node name="glasses" type="Node2D" parent="LEVEL"]
 
@@ -144,6 +141,18 @@ scale = Vector2(0.75, 0.75)
 [node name="wine" parent="LEVEL/bottles" instance=ExtResource("14_6syxd")]
 position = Vector2(364, 820)
 scale = Vector2(0.75, 0.75)
+
+[node name="tap" type="Node2D" parent="LEVEL"]
+
+[node name="flow" parent="LEVEL/tap" instance=ExtResource("1_6fxvd")]
+visible = true
+position = Vector2(1399, 700)
+scale = Vector2(6, 4.001)
+
+[node name="Tap" type="Sprite2D" parent="LEVEL/tap"]
+position = Vector2(1441, 672)
+scale = Vector2(10, 10)
+texture = ExtResource("15_21yrc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

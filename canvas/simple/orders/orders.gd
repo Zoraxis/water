@@ -1,16 +1,50 @@
 extends Node
 
+@export var order_scene: PackedScene = preload("res://canvas/simple/order/order.tscn")
 
-var orders = G.newOrder()
-@export var order_scene_path: String = "res://canvas/simple/order/order.tscn"
-
-
+var orders = []
+var futureOrders = [
+	{
+		"text": "Blue",
+		"color": Color.BLUE,
+		"strength": 3,
+	},
+		{
+		"text": "Brown",
+		"color": Color.BROWN,
+		"strength": 3,
+	},
+	{
+		"text": "Yellow",
+		"color": Color.YELLOW,
+		"strength": 3,
+	},
+	{
+		"text": "White",
+		"color": Color.WHITE,
+		"strength": 3,
+	}
+]
 func _ready():
-	var order_scene: PackedScene = load(order_scene_path)
+	G.orders = self
+	timeline()
 	
-	for i in range(3):
-		var order_instance = order_scene.instantiate()
-		var label_node = order_instance.get_node("text")
-		label_node.text = str(orders[i]["text"])
-		order_instance.position = Vector2(350 * i, 100)
-		add_child(order_instance)
+func timeline():
+	newOrder();
+	await U.delay(3)
+	newOrder();
+	await U.delay(3)
+	newOrder();
+	await U.delay(3)
+
+func newOrder():
+	var appendedOrder = futureOrders[0]
+	orders.append(appendedOrder)
+	addOrder(appendedOrder)
+	futureOrders.remove_at(0)
+
+func addOrder(order):
+	var order_instance = order_scene.instantiate()
+	order_instance.setNewText(str(order["text"]))
+	order_instance.position = Vector2(350 * (orders.size() - 1), -200)
+	add_child(order_instance)
