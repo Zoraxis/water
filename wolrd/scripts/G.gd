@@ -18,3 +18,9 @@ var futureOrders = [
 		"strength": 3,
 	}
 ]
+
+
+func newOrder():
+	orders.append(futureOrders[0])
+	futureOrders.remove_at(0)
+	return orders
