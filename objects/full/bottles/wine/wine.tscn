@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
 size = Vector2(128.5, 317)
 
-[node name="cognac" type="Node2D"]
+[node name="wine" type="Node2D"]
 
 [node name="vessel" parent="." instance=ExtResource("1_cl6kp")]
 script = ExtResource("2_swso4")

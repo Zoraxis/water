@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdiutpfaop5uu"]
+[gd_scene load_steps=20 format=3 uid="uid://bdiutpfaop5uu"]
 
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="1_6fxvd"]
 [ext_resource type="Texture2D" uid="uid://b8la36084ph1o" path="res://wolrd/blueprint.png" id="1_wh7um"]
@@ -9,8 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bkm25xtlw1vdl" path="res://objects/full/glasses/beach/beach.tscn" id="6_ysfan"]
 [ext_resource type="PackedScene" uid="uid://ct1xds3kkyv44" path="res://objects/full/glasses/cognac/cognac.tscn" id="7_f3ltc"]
 [ext_resource type="PackedScene" uid="uid://bwtls3rgv8du3" path="res://objects/full/glasses/martini/martini.tscn" id="8_fg0uh"]
+[ext_resource type="PackedScene" uid="uid://cve5p7tggcoxy" path="res://objects/full/bottles/alco/alco.tscn" id="9_sexxw"]
 [ext_resource type="PackedScene" uid="uid://cb13f6m32e1wo" path="res://objects/full/bottles/cognac/cognac.tscn" id="10_jwugl"]
+[ext_resource type="PackedScene" uid="uid://c2biclldogv0p" path="res://objects/full/bottles/beer/beer.tscn" id="11_2hy6s"]
 [ext_resource type="PackedScene" uid="uid://dp64g1ayhgh03" path="res://canvas/simple/orders/orders.tscn" id="11_y3vr2"]
+[ext_resource type="PackedScene" uid="uid://dehmqpvku2oow" path="res://objects/full/bottles/champange/champagne.tscn" id="12_rtlnj"]
+[ext_resource type="PackedScene" uid="uid://d2y37jqpb1e3x" path="res://objects/full/bottles/martini/martini.tscn" id="13_tosns"]
+[ext_resource type="PackedScene" uid="uid://cnvamg8880m02" path="res://objects/full/bottles/wine/wine.tscn" id="14_6syxd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2q7"]
 size = Vector2(197, 326)
@@ -55,61 +60,90 @@ shape = SubResource("RectangleShape2D_gepth")
 visible = true
 position = Vector2(1399, 712)
 
-[node name="glasSpawner3" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+[node name="glasses" type="Node2D" parent="LEVEL"]
+
+[node name="glasSpawner3" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
 position = Vector2(1147.63, 413)
 glass = ExtResource("2_lxecv")
 
-[node name="glas" parent="LEVEL/glasSpawner3" instance=ExtResource("2_lxecv")]
+[node name="glas" parent="LEVEL/glasses/glasSpawner3" instance=ExtResource("2_lxecv")]
 position = Vector2(-1.48499, -18)
 scale = Vector2(0.5, 0.5)
 
-[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner3"]
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasses/glasSpawner3"]
 position = Vector2(-0.984985, -18.5)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_81mg3")
 debug_color = Color(0, 0.6, 0.701961, 0.160784)
 
-[node name="glasSpawner2" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+[node name="glasSpawner2" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
 position = Vector2(1232.1, 413)
 glass = ExtResource("6_ysfan")
 
-[node name="beach" parent="LEVEL/glasSpawner2" instance=ExtResource("6_ysfan")]
+[node name="beach" parent="LEVEL/glasses/glasSpawner2" instance=ExtResource("6_ysfan")]
 position = Vector2(-0.530029, -26)
 scale = Vector2(0.5, 0.5)
 
-[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner2"]
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasses/glasSpawner2"]
 position = Vector2(-0.530029, -26.5)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_81mg3")
 debug_color = Color(0, 0.6, 0.701961, 0.160784)
 
-[node name="glasSpawner4" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+[node name="glasSpawner4" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
 position = Vector2(1330.81, 413)
 glass = ExtResource("7_f3ltc")
 
-[node name="cognac" parent="LEVEL/glasSpawner4" instance=ExtResource("7_f3ltc")]
+[node name="cognac" parent="LEVEL/glasses/glasSpawner4" instance=ExtResource("7_f3ltc")]
 position = Vector2(-1.45496, -20)
 scale = Vector2(0.7, 0.7)
 
-[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner4"]
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasses/glasSpawner4"]
 position = Vector2(-0.984985, -18.5)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_81mg3")
 debug_color = Color(0, 0.6, 0.701961, 0.160784)
 
-[node name="glasSpawner5" parent="LEVEL" instance=ExtResource("4_2a1n7")]
+[node name="glasSpawner5" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
 position = Vector2(1426.11, 413)
 glass = ExtResource("8_fg0uh")
 
-[node name="collider" type="CollisionShape2D" parent="LEVEL/glasSpawner5"]
+[node name="collider" type="CollisionShape2D" parent="LEVEL/glasses/glasSpawner5"]
 position = Vector2(-0.984985, -18.5)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_81mg3")
 debug_color = Color(0, 0.6, 0.701961, 0.160784)
 
-[node name="martini" parent="LEVEL/glasSpawner5" instance=ExtResource("8_fg0uh")]
+[node name="martini" parent="LEVEL/glasses/glasSpawner5" instance=ExtResource("8_fg0uh")]
 position = Vector2(6.89001, -19)
 scale = Vector2(0.5, 0.5)
+
+[node name="bottles" type="Node2D" parent="LEVEL"]
+
+[node name="alco" parent="LEVEL/bottles" instance=ExtResource("9_sexxw")]
+position = Vector2(376, 483)
+scale = Vector2(0.7, 0.7)
+
+[node name="cognac" parent="LEVEL/bottles" instance=ExtResource("10_jwugl")]
+z_index = 1
+position = Vector2(235, 487)
+scale = Vector2(0.7, 0.7)
+
+[node name="beer" parent="LEVEL/bottles" instance=ExtResource("11_2hy6s")]
+position = Vector2(126, 491)
+scale = Vector2(0.7, 0.7)
+
+[node name="champagne" parent="LEVEL/bottles" instance=ExtResource("12_rtlnj")]
+position = Vector2(126, 828)
+scale = Vector2(0.7, 0.7)
+
+[node name="martini" parent="LEVEL/bottles" instance=ExtResource("13_tosns")]
+position = Vector2(235, 831)
+scale = Vector2(0.75, 0.75)
+
+[node name="wine" parent="LEVEL/bottles" instance=ExtResource("14_6syxd")]
+position = Vector2(364, 820)
+scale = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -126,10 +160,6 @@ scale = Vector2(4.845, 4.845)
 text = "10"
 horizontal_alignment = 2
 script = ExtResource("5_wje6a")
-
-[node name="cognac" parent="." instance=ExtResource("10_jwugl")]
-z_index = 1
-position = Vector2(791, 695)
 
 [node name="Orders" parent="." instance=ExtResource("11_y3vr2")]
 z_index = 1

@@ -7,12 +7,6 @@ extends RigidBody2D
 
 var filled = 0
 
-var dragged = false;
-var braking = false;
-var placable = false
-var pickUpOffset = Vector2(0, 0)
-var pickUpPos = Vector2(0, 0)
-
 func pour_liquid(flow):
 	flow.visible = true
 	
@@ -32,10 +26,7 @@ func _ready():
 	$flow.set_color(liquid_color)
 
 func _physics_process(delta):
-	if dragged:
-		position = get_global_mouse_position() + pickUpOffset
-		
-	if Input.is_action_pressed("action_alt") and dragged:
+	if Input.is_action_pressed("action_alt") and $vesselHolder/draggable.dragged:
 		if $vesselHolder.rotation < PI * 0.5:
 			$vesselHolder.rotation += delta * 2
 			$vesselHolder/mask/ziza.rotation += delta * 2
@@ -51,16 +42,3 @@ func _physics_process(delta):
 			if $vesselHolder.rotation < 0:
 				$vesselHolder.rotation = 0
 			stop_pouring($flow)
-	
-func _on_draggable_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.is_released():
-		dragged = false;
-		G.dragged = false
-		if not placable:
-			position = pickUpPos
-			placable = true
-	if event is InputEventMouseButton and event.is_pressed() and not G.dragged:
-		dragged = true
-		G.dragged = true
-		pickUpPos = position
-		pickUpOffset = position - get_global_mouse_position()

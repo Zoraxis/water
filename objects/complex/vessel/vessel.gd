@@ -5,11 +5,6 @@ extends RigidBody2D
 
 var filled = 0
 
-var dragged = false;
-var placable = false
-var pickUpOffset = Vector2(0, 0)
-var pickUpPos = Vector2(0, 0)
-
 var flowEntered = null
 
 func _ready():
@@ -50,10 +45,7 @@ func _on_in_body_exited(body):
 		$vesselHolder/mask/ziza.update_pos(filled)
 
 func _physics_process(delta):
-	if dragged:
-		get_parent().position = get_global_mouse_position() + pickUpOffset
-
-	if Input.is_action_pressed("action_alt") and dragged:
+	if Input.is_action_pressed("action_alt") and $vesselHolder/draggable.dragged:
 		if $vesselHolder/mask/ziza.rotation > PI * -0.11:
 			$vesselHolder/mask/ziza.rotation -= delta
 		if get_parent().rotation < PI * 0.5:
@@ -71,16 +63,3 @@ func _physics_process(delta):
 			get_parent().rotation -= delta * 4
 		
 	move_and_collide(Vector2(0,0))
-
-func _on_draggable_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.is_released():
-		dragged = false
-		G.dragged = false
-		if not placable:
-			get_parent().position = pickUpPos
-			placable = true
-	if event is InputEventMouseButton and event.is_pressed() and not G.dragged:
-		dragged = true
-		G.dragged = true
-		pickUpPos = get_parent().position
-		pickUpOffset = get_parent().position - get_global_mouse_position()
