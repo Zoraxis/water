@@ -1,6 +1,6 @@
 extends Node2D
 
-var text = "PENIS"
+var text = " "
 var currSymbol = 0
 
 var textDelay = 0
@@ -11,6 +11,7 @@ func setNewText(newText):
 	currSymbol = 0
 
 func _process(delta):
+	
 	if textDelay <= 0 and currSymbol < text.length():
 		$text.text += text[currSymbol]
 		currSymbol += 1

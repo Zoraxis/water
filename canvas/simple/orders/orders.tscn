@@ -1,16 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp64g1ayhgh03"]
+[gd_scene load_steps=2 format=3 uid="uid://dp64g1ayhgh03"]
 
 [ext_resource type="Script" path="res://canvas/simple/orders/orders.gd" id="1_y3axv"]
-[ext_resource type="PackedScene" uid="uid://b12e0d8a3kitq" path="res://canvas/simple/order/order.tscn" id="2_elihn"]
 
 [node name="Orders" type="Node2D"]
 script = ExtResource("1_y3axv")
-
-[node name="order" parent="." instance=ExtResource("2_elihn")]
-position = Vector2(180, 165)
-
-[node name="order2" parent="." instance=ExtResource("2_elihn")]
-position = Vector2(536, 166)
-
-[node name="order3" parent="." instance=ExtResource("2_elihn")]
-position = Vector2(880, 162)
