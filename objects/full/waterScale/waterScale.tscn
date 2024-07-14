@@ -43,5 +43,20 @@ wait_time = 5.0
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="particle" type="Node2D" parent="."]
+position = Vector2(264, 41)
+
+[node name="particle" type="CPUParticles2D" parent="particle"]
+z_index = 2
+amount = 30
+explosiveness = 0.1
+lifetime_randomness = 1.0
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.49
+initial_velocity_max = 291.26
+scale_amount_max = 30.0
+color = Color(0, 0.596078, 1, 1)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

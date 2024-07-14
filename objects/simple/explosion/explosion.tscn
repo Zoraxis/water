@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cfxytlf5lqxqg"]
+
+[node name="explosion" type="Node2D"]
+
+[node name="particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 25.38
+initial_velocity_max = 300.0
+scale_amount_min = 5.0
+scale_amount_max = 15.0

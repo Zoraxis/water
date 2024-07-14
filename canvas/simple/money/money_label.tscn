@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://pcy0xrdpnsdb"]
+
+[ext_resource type="Script" path="res://canvas/simple/money/moneyLabel.gd" id="1_4m515"]
+[ext_resource type="PackedScene" uid="uid://cfxytlf5lqxqg" path="res://objects/simple/explosion/explosion.tscn" id="2_jceqe"]
+
+[node name="moneyLabel" type="Label"]
+anchors_preset = -1
+anchor_left = 0.797
+anchor_right = 1.0
+anchor_bottom = 0.118
+offset_left = -26.24
+offset_top = 73.0
+offset_right = -338.0
+offset_bottom = -23.44
+scale = Vector2(4.845, 4.845)
+text = "10"
+horizontal_alignment = 2
+script = ExtResource("1_4m515")
+
+[node name="explosion" parent="." instance=ExtResource("2_jceqe")]
+position = Vector2(59.6491, 9.70072)

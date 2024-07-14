@@ -9,10 +9,12 @@ func _ready():
 	update_health_bar()
 	
 func _on_timer_timeout():
-		if G.current_hp > 0:
-			G.current_hp -= 1
-			print("time")
-			
+	if G.current_hp > 0:
+		G.current_hp -= 1
+		$particle.position.x -= 40
+	else:
+		$particle.queue_free()
+		G.gameOver()
 
 func _on_timer_2_timeout():
 	update_health_bar()

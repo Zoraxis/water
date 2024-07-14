@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bdiutpfaop5uu"]
+[gd_scene load_steps=34 format=3 uid="uid://bdiutpfaop5uu"]
 
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="1_6fxvd"]
 [ext_resource type="Texture2D" uid="uid://bnqqtbv4edyhs" path="res://objects/full/table/tablepng.png" id="1_dvc76"]
@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bgfarrxf45t25" path="res://objects/full/table/table.png" id="3_543ty"]
 [ext_resource type="PackedScene" uid="uid://cj16cj22h1ba3" path="res://objects/complex/spawner/spawner.tscn" id="4_2a1n7"]
 [ext_resource type="PackedScene" uid="uid://bx83ngksndfxs" path="res://objects/simple/placable/placable.tscn" id="4_xin7v"]
-[ext_resource type="Script" path="res://canvas/simple/money/moneyLabel.gd" id="5_wje6a"]
 [ext_resource type="Texture2D" uid="uid://ue27cwx61auo" path="res://objects/full/glasses/glas1/glas.png" id="6_wc5c7"]
 [ext_resource type="PackedScene" uid="uid://bkm25xtlw1vdl" path="res://objects/full/glasses/beach/beach.tscn" id="6_ysfan"]
 [ext_resource type="PackedScene" uid="uid://ct1xds3kkyv44" path="res://objects/full/glasses/cognac/cognac.tscn" id="7_f3ltc"]
 [ext_resource type="PackedScene" uid="uid://bwtls3rgv8du3" path="res://objects/full/glasses/martini/martini.tscn" id="8_fg0uh"]
 [ext_resource type="Texture2D" uid="uid://ujvtu3g0kxog" path="res://objects/full/glasses/beach/Beach.png" id="8_j6ik5"]
+[ext_resource type="PackedScene" uid="uid://cve5p7tggcoxy" path="res://objects/full/bottles/alco/alco.tscn" id="9_sexxw"]
 [ext_resource type="Texture2D" uid="uid://pw7r6itif75k" path="res://objects/full/glasses/martini/Martini.png" id="9_ulo8x"]
 [ext_resource type="Texture2D" uid="uid://cnhlxf0ljlrax" path="res://objects/full/glasses/cognac/Cognac.png" id="10_dfapi"]
 [ext_resource type="PackedScene" uid="uid://cb13f6m32e1wo" path="res://objects/full/bottles/cognac/cognac.tscn" id="10_jwugl"]
@@ -21,7 +21,15 @@
 [ext_resource type="PackedScene" uid="uid://d2y37jqpb1e3x" path="res://objects/full/bottles/martini/martini.tscn" id="13_tosns"]
 [ext_resource type="PackedScene" uid="uid://cnvamg8880m02" path="res://objects/full/bottles/wine/wine.tscn" id="14_6syxd"]
 [ext_resource type="Texture2D" uid="uid://cp44wk6gas2ns" path="res://objects/full/tap/tap.png" id="15_21yrc"]
+[ext_resource type="Texture2D" uid="uid://y33668f4cxqi" path="res://objects/full/bottles/alco/Alco.png" id="15_rp1yr"]
+[ext_resource type="Texture2D" uid="uid://ct7lbdur1132w" path="res://objects/full/bottles/beer/Beer.png" id="16_gd04n"]
+[ext_resource type="Texture2D" uid="uid://cblwgkgsobomj" path="res://objects/full/bottles/wine/Wine.png" id="18_tuaqi"]
 [ext_resource type="Texture2D" uid="uid://dgt1wg56u8y18" path="res://objects/full/table/napkin.png" id="19_j3b24"]
+[ext_resource type="Texture2D" uid="uid://chu3n84tcphno" path="res://objects/full/bottles/champange/Champange.png" id="22_r716v"]
+[ext_resource type="Texture2D" uid="uid://b6luovler2h88" path="res://objects/full/bottles/martini/Martini.png" id="24_cgyvo"]
+[ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="26_xrjcs"]
+[ext_resource type="PackedScene" uid="uid://pcy0xrdpnsdb" path="res://canvas/simple/money/money_label.tscn" id="27_fipi8"]
+[ext_resource type="PackedScene" uid="uid://p648t4h3rgch" path="res://objects/full/waterScale/waterScale.tscn" id="28_21h2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gepth"]
 size = Vector2(169.5, 184.75)
@@ -42,6 +50,7 @@ metadata/_edit_vertical_guides_ = [1421.0]
 
 [node name="table" type="Sprite2D" parent="LEVEL/ENVIRONMENT"]
 modulate = Color(1, 1, 1, 0.462745)
+z_index = -2
 position = Vector2(960.5, 539.5)
 scale = Vector2(2.40125, 1.34875)
 texture = ExtResource("1_dvc76")
@@ -64,7 +73,8 @@ position = Vector2(1750, 907.25)
 shape = SubResource("RectangleShape2D_gepth")
 
 [node name="placable" parent="LEVEL/placables" instance=ExtResource("4_xin7v")]
-position = Vector2(869, 796)
+z_index = -1
+position = Vector2(972, 785)
 scale = Vector2(1.49, 1.49)
 isNapkin = false
 
@@ -76,10 +86,48 @@ texture = ExtResource("3_543ty")
 [node name="collider" type="CollisionShape2D" parent="LEVEL/placables/placable"]
 shape = SubResource("RectangleShape2D_qt2q7")
 
+[node name="tap" type="Node2D" parent="LEVEL/placables"]
+position = Vector2(1335, 610)
+scale = Vector2(1.5, 1.5)
+
+[node name="flow" parent="LEVEL/placables/tap" instance=ExtResource("1_6fxvd")]
+visible = true
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-44, 29)
+scale = Vector2(6, 4.001)
+color = Color(0, 0.627451, 1, 1)
+
+[node name="particle" type="Node2D" parent="LEVEL/placables/tap"]
+modulate = Color(0.623529, 1, 1, 0.372549)
+z_index = -3
+z_as_relative = false
+position = Vector2(-44, -18.6667)
+rotation = 1.5708
+scale = Vector2(0.94, 0.94)
+
+[node name="particle" type="CPUParticles2D" parent="LEVEL/placables/tap/particle"]
+z_index = 2
+amount = 30
+lifetime = 0.4
+speed_scale = 0.5
+explosiveness = 0.1
+lifetime_randomness = 1.0
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.49
+initial_velocity_max = 291.26
+scale_amount_max = 30.0
+color = Color(0, 0.596078, 1, 1)
+
+[node name="Tap" type="Sprite2D" parent="LEVEL/placables/tap"]
+z_index = -1
+scale = Vector2(10, 10)
+texture = ExtResource("15_21yrc")
+
 [node name="glasses" type="Node2D" parent="LEVEL"]
 
 [node name="glasSpawner3" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
-position = Vector2(678, 422)
+position = Vector2(759, 424)
 glass = ExtResource("2_lxecv")
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/glasses/glasSpawner3"]
@@ -88,7 +136,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("6_wc5c7")
 
 [node name="glasSpawner2" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
-position = Vector2(804, 421)
+position = Vector2(885, 423)
 glass = ExtResource("6_ysfan")
 price = 2
 
@@ -98,7 +146,7 @@ scale = Vector2(6, 6)
 texture = ExtResource("8_j6ik5")
 
 [node name="glasSpawner4" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
-position = Vector2(934, 421)
+position = Vector2(1015, 423)
 glass = ExtResource("7_f3ltc")
 price = 3
 
@@ -108,7 +156,7 @@ scale = Vector2(7, 7)
 texture = ExtResource("10_dfapi")
 
 [node name="glasSpawner5" parent="LEVEL/glasses" instance=ExtResource("4_2a1n7")]
-position = Vector2(1075, 421)
+position = Vector2(1156, 423)
 glass = ExtResource("8_fg0uh")
 price = 4
 
@@ -119,55 +167,83 @@ texture = ExtResource("9_ulo8x")
 
 [node name="bottles" type="Node2D" parent="LEVEL"]
 
-[node name="cognac" parent="LEVEL/bottles" instance=ExtResource("10_jwugl")]
-z_index = 1
-scale = Vector2(0.7, 0.7)
-
-[node name="beer" parent="LEVEL/bottles" instance=ExtResource("11_2hy6s")]
-scale = Vector2(0.7, 0.7)
-
-[node name="champagne" parent="LEVEL/bottles" instance=ExtResource("12_rtlnj")]
-scale = Vector2(0.7, 0.7)
-
-[node name="martini" parent="LEVEL/bottles" instance=ExtResource("13_tosns")]
-scale = Vector2(0.75, 0.75)
-
-[node name="wine" parent="LEVEL/bottles" instance=ExtResource("14_6syxd")]
-scale = Vector2(0.75, 0.75)
-
 [node name="glasSpawner" parent="LEVEL/bottles" instance=ExtResource("4_2a1n7")]
-position = Vector2(145, 500)
-scale = Vector2(1.5, 1.5)
+position = Vector2(123, 491)
+scale = Vector2(1.6, 1.75)
+glass = ExtResource("11_2hy6s")
+red = true
 
-[node name="tap" type="Node2D" parent="LEVEL"]
-position = Vector2(1335, 610)
-scale = Vector2(1.5, 1.5)
+[node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner"]
+position = Vector2(0.625, 20)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("16_gd04n")
 
-[node name="flow" parent="LEVEL/tap" instance=ExtResource("1_6fxvd")]
-visible = true
-position = Vector2(-44, 29)
-scale = Vector2(6, 4.001)
-color = Color(0, 0.627451, 1, 1)
+[node name="glasSpawner2" parent="LEVEL/bottles" instance=ExtResource("4_2a1n7")]
+position = Vector2(303, 491)
+scale = Vector2(1.6, 1.75)
+glass = ExtResource("14_6syxd")
+price = 2
+red = true
 
-[node name="Tap" type="Sprite2D" parent="LEVEL/tap"]
-scale = Vector2(10, 10)
-texture = ExtResource("15_21yrc")
+[node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner2"]
+position = Vector2(0.625, 19.4285)
+scale = Vector2(3.945, 3.945)
+texture = ExtResource("18_tuaqi")
+
+[node name="glasSpawner3" parent="LEVEL/bottles" instance=ExtResource("4_2a1n7")]
+position = Vector2(479, 491)
+scale = Vector2(1.6, 1.75)
+glass = ExtResource("9_sexxw")
+price = 2
+red = true
+
+[node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner3"]
+position = Vector2(0.625, 20)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("15_rp1yr")
+
+[node name="glasSpawner4" parent="LEVEL/bottles" instance=ExtResource("4_2a1n7")]
+position = Vector2(123, 839)
+scale = Vector2(1.6, 1.75)
+glass = ExtResource("12_rtlnj")
+price = 3
+red = true
+
+[node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner4"]
+position = Vector2(0.625, 20.5714)
+scale = Vector2(3.88, 3.88)
+texture = ExtResource("22_r716v")
+
+[node name="glasSpawner5" parent="LEVEL/bottles" instance=ExtResource("4_2a1n7")]
+position = Vector2(303, 839)
+scale = Vector2(1.6, 1.75)
+glass = ExtResource("13_tosns")
+price = 4
+red = true
+
+[node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner5"]
+position = Vector2(0.625, 20)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("24_cgyvo")
+
+[node name="glasSpawner6" parent="LEVEL/bottles" instance=ExtResource("4_2a1n7")]
+position = Vector2(479, 839)
+scale = Vector2(1.6, 1.75)
+glass = ExtResource("10_jwugl")
+price = 5
+red = true
+
+[node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner6"]
+position = Vector2(0.625, 20)
+scale = Vector2(4.05, 4.05)
+texture = ExtResource("26_xrjcs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="moneyLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.797
-anchor_right = 1.0
-anchor_bottom = 0.118
-offset_left = -1.24011
-offset_top = -6.0
-offset_right = -313.0
-offset_bottom = -102.44
-scale = Vector2(4.845, 4.845)
-text = "10"
-horizontal_alignment = 2
-script = ExtResource("5_wje6a")
+[node name="moneyLabel" parent="CanvasLayer" instance=ExtResource("27_fipi8")]
+
+[node name="WaterScale" parent="CanvasLayer" instance=ExtResource("28_21h2o")]
+position = Vector2(1571, 4)
 
 [node name="Orders" parent="." instance=ExtResource("11_y3vr2")]
 z_index = 1
