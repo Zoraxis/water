@@ -38,18 +38,16 @@ func _physics_process(delta):
 		braking = 0
 		
 	if Input.is_action_pressed("action_alt") and dragged:
-		if $vesselHolder.rotation > PI * -0.11:
-			$vesselHolder.rotation -= delta
 		if $vesselHolder.rotation < PI * 0.5:
-			$vesselHolder.rotation += delta * 3
+			$vesselHolder.rotation += delta * 2
 		if $vesselHolder.rotation > 1.4:
 			pour_liquid($flow)
 			
 	else:
-		if $vesselHolder.rotation < 0:
-			$vesselHolder.rotation += delta * 1.5
 		if $vesselHolder.rotation > 0:
-			$vesselHolder.rotation -= delta * 4
+			$vesselHolder.rotation -= delta * 3
+			if $vesselHolder.rotation < 0:
+				$vesselHolder.rotation = 0
 			stop_pouring($flow)
 	
 func _on_draggable_input_event(viewport, event, shape_idx):
