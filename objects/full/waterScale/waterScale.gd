@@ -71,3 +71,4 @@ func update_health_bar():
 			$HP1/HP2/HP3/HP4/HP5.visible = false
 			$HP1/HP2/HP3/HP4/HP5/HP6.visible = false
 			$Timer.stop()
+			get_tree().change_scene_to_file("res://gameover/gameover.tscn")
