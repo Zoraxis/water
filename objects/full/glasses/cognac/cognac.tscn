@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct1xds3kkyv44"]
+[gd_scene load_steps=8 format=3 uid="uid://ct1xds3kkyv44"]
 
 [ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_ihlkf"]
 [ext_resource type="Texture2D" uid="uid://bu3mq7f5kplhj" path="res://objects/full/glasses/cognac/CognacMask.png" id="2_2fq11"]
+[ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="2_bukap"]
 [ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="3_084kn"]
 [ext_resource type="Texture2D" uid="uid://cnhlxf0ljlrax" path="res://objects/full/glasses/cognac/Cognac.png" id="4_sejp0"]
 
@@ -11,10 +12,15 @@ size = Vector2(48, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
 size = Vector2(90, 150)
 
-[node name="cognac" type="Node2D"]
+[node name="cognac2" type="Node2D"]
 
 [node name="vessel" parent="." instance=ExtResource("1_ihlkf")]
 size = Vector2(0.75, 0.75)
+
+[node name="flow" parent="vessel" instance=ExtResource("2_bukap")]
+position = Vector2(50, -76)
+rotation = 1.5708
+scale = Vector2(5, 3.334)
 
 [node name="inCollider" type="CollisionShape2D" parent="vessel"]
 position = Vector2(0, -65)

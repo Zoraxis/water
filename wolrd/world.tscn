@@ -51,7 +51,9 @@ position = Vector2(1750, 907.25)
 shape = SubResource("RectangleShape2D_gepth")
 
 [node name="flow" parent="LEVEL" instance=ExtResource("1_6fxvd")]
-position = Vector2(502, 353)
+visible = true
+position = Vector2(1399, 712)
+color = Color(0.482353, 0.65098, 1, 1)
 
 [node name="glasSpawner3" parent="LEVEL" instance=ExtResource("4_2a1n7")]
 position = Vector2(1147.63, 413)

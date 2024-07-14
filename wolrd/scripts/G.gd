@@ -2,6 +2,9 @@ extends Node
 
 var money = 10;
 
+var dragged = false;
+var outlined = [];
+
 func updateMoney(value):
 	money += value
 

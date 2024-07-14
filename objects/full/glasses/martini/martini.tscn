@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwtls3rgv8du3"]
+[gd_scene load_steps=8 format=3 uid="uid://bwtls3rgv8du3"]
 
 [ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_s0leg"]
 [ext_resource type="Texture2D" uid="uid://pw7r6itif75k" path="res://objects/full/glasses/martini/Martini.png" id="2_77bjs"]
+[ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="2_ane8b"]
 [ext_resource type="Texture2D" uid="uid://qy5mcpkywkfl" path="res://objects/full/glasses/martini/MartiniMask.png" id="3_id0b7"]
 [ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_1xvsy"]
 
@@ -14,6 +15,10 @@ size = Vector2(200, 18)
 [node name="martini" type="Node2D"]
 
 [node name="vessel" parent="." instance=ExtResource("1_s0leg")]
+
+[node name="flow" parent="vessel" instance=ExtResource("2_ane8b")]
+position = Vector2(135, -119)
+rotation = 1.5708
 
 [node name="collider" type="CollisionShape2D" parent="vessel"]
 position = Vector2(-5, 5)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkm25xtlw1vdl"]
+[gd_scene load_steps=10 format=3 uid="uid://bkm25xtlw1vdl"]
 
 [ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_qfpx7"]
 [ext_resource type="Texture2D" uid="uid://ujvtu3g0kxog" path="res://objects/full/glasses/beach/Beach.png" id="2_6bemk"]
+[ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="2_he4jf"]
 [ext_resource type="Texture2D" uid="uid://bioq6ujl4sgqd" path="res://objects/full/glasses/beach/BeachMask.png" id="3_5p57h"]
 [ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_aclht"]
 
@@ -21,6 +22,10 @@ size = Vector2(130, 200)
 scale = Vector2(0.25, 0.25)
 
 [node name="glas" parent="." instance=ExtResource("1_qfpx7")]
+
+[node name="flow" parent="glas" instance=ExtResource("2_he4jf")]
+position = Vector2(80, -104)
+rotation = 1.5708
 
 [node name="collider" type="CollisionShape2D" parent="glas"]
 position = Vector2(-0.145, -2.715)
