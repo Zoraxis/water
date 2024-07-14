@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdiutpfaop5uu"]
+[gd_scene load_steps=35 format=3 uid="uid://bdiutpfaop5uu"]
 
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="1_6fxvd"]
 [ext_resource type="Texture2D" uid="uid://bnqqtbv4edyhs" path="res://objects/full/table/tablepng.png" id="1_dvc76"]
@@ -28,8 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://chu3n84tcphno" path="res://objects/full/bottles/champange/Champange.png" id="22_r716v"]
 [ext_resource type="Texture2D" uid="uid://b6luovler2h88" path="res://objects/full/bottles/martini/Martini.png" id="24_cgyvo"]
 [ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="26_xrjcs"]
-[ext_resource type="PackedScene" uid="uid://pcy0xrdpnsdb" path="res://canvas/simple/money/money_label.tscn" id="27_fipi8"]
+[ext_resource type="PackedScene" path="res://canvas/simple/money/money_label.tscn" id="27_fipi8"]
 [ext_resource type="PackedScene" uid="uid://p648t4h3rgch" path="res://objects/full/waterScale/waterScale.tscn" id="28_21h2o"]
+[ext_resource type="AudioStream" uid="uid://c5cd1nlipr01" path="res://canvas/simple/audio/music.wav" id="31_3loig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gepth"]
 size = Vector2(169.5, 184.75)
@@ -171,7 +172,6 @@ texture = ExtResource("9_ulo8x")
 position = Vector2(123, 491)
 scale = Vector2(1.6, 1.75)
 glass = ExtResource("11_2hy6s")
-red = true
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner"]
 position = Vector2(0.625, 20)
@@ -183,7 +183,6 @@ position = Vector2(303, 491)
 scale = Vector2(1.6, 1.75)
 glass = ExtResource("14_6syxd")
 price = 2
-red = true
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner2"]
 position = Vector2(0.625, 19.4285)
@@ -195,7 +194,6 @@ position = Vector2(479, 491)
 scale = Vector2(1.6, 1.75)
 glass = ExtResource("9_sexxw")
 price = 2
-red = true
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner3"]
 position = Vector2(0.625, 20)
@@ -207,7 +205,6 @@ position = Vector2(123, 839)
 scale = Vector2(1.6, 1.75)
 glass = ExtResource("12_rtlnj")
 price = 3
-red = true
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner4"]
 position = Vector2(0.625, 20.5714)
@@ -219,7 +216,6 @@ position = Vector2(303, 839)
 scale = Vector2(1.6, 1.75)
 glass = ExtResource("13_tosns")
 price = 4
-red = true
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner5"]
 position = Vector2(0.625, 20)
@@ -231,7 +227,6 @@ position = Vector2(479, 839)
 scale = Vector2(1.6, 1.75)
 glass = ExtResource("10_jwugl")
 price = 5
-red = true
 
 [node name="sprite" type="Sprite2D" parent="LEVEL/bottles/glasSpawner6"]
 position = Vector2(0.625, 20)
@@ -281,3 +276,7 @@ texture = ExtResource("19_j3b24")
 
 [node name="collider" type="CollisionShape2D" parent="napkins/placable3"]
 shape = SubResource("RectangleShape2D_m8o6j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_3loig")
+autoplay = true
