@@ -9,3 +9,5 @@ func updateMoney(value):
 	money += value
 
 var orders = null
+
+var current_hp
