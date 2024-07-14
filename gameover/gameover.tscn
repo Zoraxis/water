@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq0rnlg4sg2dg"]
+
+[ext_resource type="Texture2D" uid="uid://cqoyewn1uyf2k" path="res://gameover/pngimg.com - game_over_PNG18.png" id="1_gmoaj"]
+[ext_resource type="Script" path="res://gameover/Area2D.gd" id="2_c8erq"]
+
+[node name="Gameover" type="Node2D"]
+
+[node name="Pngimg_com-GameOverPng18" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(940, 300)
+scale = Vector2(2.35789, 2.152)
+texture = ExtResource("1_gmoaj")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 811.0
+offset_top = 586.0
+offset_right = 1099.0
+offset_bottom = 644.0
+theme_override_font_sizes/font_size = 40
+text = "RESTART
+"
+script = ExtResource("2_c8erq")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
