@@ -11,6 +11,8 @@ var placable = false
 var pickUpOffset = Vector2(0, 0)
 var pickUpPos = Vector2(0, 0)
 
+var flowEntered = null
+
 func _ready():
 	$draggableCollider.reparent($vesselHolder/draggable)
 	$outlineCollider.reparent($vesselHolder/outlineTrigger);
@@ -27,21 +29,26 @@ func _process(delta):
 		if $vesselHolder/mask/ziza.state == true:
 			filled = 0.5
 		
-
-func _on_in_body_entered(body):
-	if body.is_in_group("FLOW") and body.visible == true:
-		$vesselHolder/mask.modulate = body.get_color()
-		$vesselHolder/mask/ziza.toggle(true)
+	if flowEntered != null:
+		if flowEntered.visible == true:
+			$vesselHolder/mask/ziza.toggle(true)
+		else:
+			$vesselHolder/mask/ziza.toggle(false)
 	else:
 		$vesselHolder/mask/ziza.toggle(false)
 
+func _on_in_body_entered(body):
+	if body.is_in_group("FLOW"):
+		flowEntered = body
+		$vesselHolder/mask.modulate = body.get_color()
+
 func _on_in_body_exited(body):
- #if body.is_in_group("FLOW"):
-	$vesselHolder/mask/ziza.toggle(false)
+	if body.is_in_group("FLOW"):
+		flowEntered = null
+		$vesselHolder/mask/ziza.toggle(false)
 
 func _physics_process(delta):
 	if dragged > 0:
-		print(get_parent().name)
 		get_parent().position = get_global_mouse_position() + pickUpOffset
 		dragged -= braking
 	else:

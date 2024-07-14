@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ci4pwtdjnum4a"]
 
 [ext_resource type="Script" path="res://objects/simple/ziza/ziza.gd" id="1_lo3qk"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6fl0m"]
+[ext_resource type="Texture2D" uid="uid://beo2tk4uqlbk4" path="res://objects/simple/ziza/ziza.png" id="2_lckpi"]
 
 [node name="ziza" type="Node2D"]
 script = ExtResource("1_lo3qk")
 
 [node name="sprite" type="Sprite2D" parent="."]
-scale = Vector2(40, 40)
-texture = SubResource("PlaceholderTexture2D_6fl0m")
+scale = Vector2(14.7637, 10.8086)
+texture = ExtResource("2_lckpi")

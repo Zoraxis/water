@@ -1,32 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb13f6m32e1wo"]
+[gd_scene load_steps=7 format=3 uid="uid://cb13f6m32e1wo"]
 
 [ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_lsje3"]
 [ext_resource type="Script" path="res://objects/complex/vessel/bottle.gd" id="2_gspra"]
 [ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="2_hcjf0"]
+[ext_resource type="Texture2D" uid="uid://beo2tk4uqlbk4" path="res://objects/simple/ziza/ziza.png" id="4_d2ubu"]
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="4_hsf8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
-size = Vector2(125, 322)
+size = Vector2(128.5, 317)
 
 [node name="cognac" type="Node2D"]
 
 [node name="vessel" parent="." instance=ExtResource("1_lsje3")]
 script = ExtResource("2_gspra")
+liquid_color = Color(0.615686, 0.0980392, 0, 1)
+opacity = 0.9
 
 [node name="collider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0, -4.49)
 shape = SubResource("RectangleShape2D_ffrxc")
 
 [node name="outlineCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0, -4.49)
 shape = SubResource("RectangleShape2D_ffrxc")
 
 [node name="draggableCollider" type="CollisionShape2D" parent="vessel"]
-position = Vector2(-7.5, 11)
+position = Vector2(0, -4.49)
 shape = SubResource("RectangleShape2D_ffrxc")
 
 [node name="sprite" type="Sprite2D" parent="vessel"]
-z_index = 1
 scale = Vector2(10, 10)
 texture = ExtResource("2_hcjf0")
+
+[node name="mask" type="Sprite2D" parent="vessel"]
+clip_children = 1
+scale = Vector2(10, 10)
+texture = ExtResource("2_hcjf0")
+
+[node name="foolness" type="Sprite2D" parent="vessel/mask"]
+modulate = Color(0, 0, 0, 0.258824)
+position = Vector2(-0.0500019, 2.05)
+scale = Vector2(8.425, 6.775)
+texture = ExtResource("4_d2ubu")
 
 [node name="flow" parent="vessel" instance=ExtResource("4_hsf8e")]
 position = Vector2(76, 56)

@@ -36,7 +36,7 @@ scale = Vector2(10, 10)
 texture = ExtResource("2_2fq11")
 
 [node name="ziza" parent="vessel/mask" instance=ExtResource("3_084kn")]
-position = Vector2(0, 15.17)
+position = Vector2(0, 15.39)
 scale = Vector2(0.465, 0.525)
 
 [node name="sprite" type="Sprite2D" parent="vessel"]

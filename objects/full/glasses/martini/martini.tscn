@@ -42,5 +42,4 @@ scale = Vector2(10, 10)
 texture = ExtResource("3_id0b7")
 
 [node name="ziza" parent="vessel/mask" instance=ExtResource("4_1xvsy")]
-modulate = Color(0.572549, 0.427451, 0.172549, 1)
 position = Vector2(0.6, 26.4)
