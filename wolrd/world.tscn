@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dop3n2b2oww6p" path="res://objects/full/glasses/glas1/glas.tscn" id="2_lxecv"]
 [ext_resource type="PackedScene" uid="uid://cj16cj22h1ba3" path="res://objects/full/glasses/glasSpawner/glasSpawner.tscn" id="4_2a1n7"]
 [ext_resource type="PackedScene" uid="uid://bx83ngksndfxs" path="res://objects/simple/placable/placable.tscn" id="4_xin7v"]
-[ext_resource type="Script" path="res://canvas/money/moneyLabel.gd" id="5_wje6a"]
+[ext_resource type="Script" path="res://canvas/simple/money/moneyLabel.gd" id="5_wje6a"]
 [ext_resource type="PackedScene" uid="uid://bkm25xtlw1vdl" path="res://objects/full/glasses/beach/beach.tscn" id="6_ysfan"]
 [ext_resource type="PackedScene" uid="uid://ct1xds3kkyv44" path="res://objects/full/glasses/cognac/cognac.tscn" id="7_f3ltc"]
 [ext_resource type="PackedScene" uid="uid://bwtls3rgv8du3" path="res://objects/full/glasses/martini/martini.tscn" id="8_fg0uh"]
