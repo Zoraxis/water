@@ -1,11 +1,11 @@
 extends RigidBody2D
 
-@export var capacity = 100.0
+@export var capacity = 1.0
 @export var size = Vector2(0.5, 0.5)
 @export var liquid_color: Color = Color.ORANGE_RED.lerp(Color.SADDLE_BROWN, 0.5)
 @export var opacity = 0.7
 
-var filled = 1
+var filled = 0
 
 var dragged = false;
 var braking = false;
@@ -38,16 +38,16 @@ func _physics_process(delta):
 	if Input.is_action_pressed("action_alt") and dragged:
 		if $vesselHolder.rotation < PI * 0.5:
 			$vesselHolder.rotation += delta * 2
-			$vesselHolder/mask/foolness.rotation += delta * 2
-		if $vesselHolder.rotation > 1.4:
+			$vesselHolder/mask/ziza.rotation += delta * 2
+		if $vesselHolder.rotation > 1.4 and filled < 1:
 			pour_liquid($flow)
-			filled -= delta
-			$vesselHolder/mask/foolness.position.y += delta * 3
+			filled += delta * .2
+			$vesselHolder/mask/ziza.update_pos(filled)
 			
 	else:
 		if $vesselHolder.rotation > 0:
 			$vesselHolder.rotation -= delta * 3
-			$vesselHolder/mask/foolness.rotation -= delta * 2
+			$vesselHolder/mask/ziza.rotation -= delta * 2
 			if $vesselHolder.rotation < 0:
 				$vesselHolder.rotation = 0
 			stop_pouring($flow)

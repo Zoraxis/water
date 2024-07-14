@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_lsje3"]
 [ext_resource type="Script" path="res://objects/complex/vessel/bottle.gd" id="2_gspra"]
 [ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="2_hcjf0"]
-[ext_resource type="Texture2D" uid="uid://beo2tk4uqlbk4" path="res://objects/simple/ziza/ziza.png" id="4_d2ubu"]
 [ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="4_hsf8e"]
+[ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_pcacn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
 size = Vector2(128.5, 317)
@@ -37,11 +37,10 @@ clip_children = 1
 scale = Vector2(10, 10)
 texture = ExtResource("2_hcjf0")
 
-[node name="foolness" type="Sprite2D" parent="vessel/mask"]
-modulate = Color(0, 0, 0, 0.258824)
-position = Vector2(-0.0500019, 2.05)
-scale = Vector2(8.425, 6.775)
-texture = ExtResource("4_d2ubu")
+[node name="ziza" parent="vessel/mask" instance=ExtResource("4_pcacn")]
+modulate = Color(0, 0, 0, 0.176471)
+position = Vector2(0, 10.2)
+distance = 26.0
 
 [node name="flow" parent="vessel" instance=ExtResource("4_hsf8e")]
 position = Vector2(76, 56)

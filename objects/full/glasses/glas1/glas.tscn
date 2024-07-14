@@ -46,5 +46,6 @@ scale = Vector2(10, 10)
 texture = ExtResource("3_yagyg")
 
 [node name="ziza" parent="vessel/mask" instance=ExtResource("4_vir3c")]
-position = Vector2(0.1, 24.6)
+position = Vector2(0.1, 25)
 scale = Vector2(0.725, 0.705)
+distance = -17.0

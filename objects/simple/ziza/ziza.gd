@@ -1,13 +1,15 @@
 extends Node2D
 
 @export var distance = 3.55
-
+var currentDistance = 0
+var startingPosY = 0
 var state = false
 
-func toggle(newState):
-	state = newState
+func _ready():
+	startingPosY = position.y
+
+func update_pos(progress):
+	currentDistance = progress * distance
 
 func _process(delta):
-	if distance > 0 and state:# Input.is_action_pressed("ui_accept"):
-		position = Vector2(position.x, position.y - 5 * delta)
-		distance -= delta
+	position.y = startingPosY + currentDistance

@@ -22,7 +22,6 @@ var futureOrders = [
 	}
 ]
 
-
 func newOrder():
 	orders.append(futureOrders[0])
 	futureOrders.remove_at(0)

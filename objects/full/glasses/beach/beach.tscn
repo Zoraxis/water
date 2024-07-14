@@ -56,4 +56,5 @@ scale = Vector2(10, 10)
 texture = ExtResource("3_5p57h")
 
 [node name="ziza" parent="glas/mask" instance=ExtResource("4_aclht")]
-position = Vector2(0, 27.28)
+position = Vector2(0, 28)
+distance = -12.0

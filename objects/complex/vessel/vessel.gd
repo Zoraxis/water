@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var capacity = 100.0
+@export var capacity = 1.0
 @export var size = Vector2(0.5, 0.5)
 
 var filled = 0
@@ -25,19 +25,18 @@ func _ready():
 	$collider.scale = size
 
 func _process(delta):
-	if $vesselHolder/mask/ziza:
-		if $vesselHolder/mask/ziza.state == true:
-			filled = 0.5
-		
 	if flowEntered != null:
-		if flowEntered.visible == true:
-			filled += delta
-			$vesselHolder/mask/ziza.toggle(true)
+		if flowEntered.visible == true and filled < 1.0:
+			filled += delta * .5
+			$vesselHolder/mask/ziza.update_pos(filled)
 			$vesselHolder/mask.modulate = $vesselHolder/mask.modulate.lerp(flowEntered.color, delta)
 		else:
-			$vesselHolder/mask/ziza.toggle(false)
+			$vesselHolder/mask/ziza.update_pos(filled)
 	else:
-		$vesselHolder/mask/ziza.toggle(false)
+		$vesselHolder/mask/ziza.update_pos(filled)
+		
+	if filled <= 0:
+		$vesselHolder/flow.visible = false
 
 func _on_in_body_entered(body):
 	if body.is_in_group("FLOW") and body != $vesselHolder/flow:
@@ -48,7 +47,7 @@ func _on_in_body_entered(body):
 func _on_in_body_exited(body):
 	if body.is_in_group("FLOW"):
 		flowEntered = null
-		$vesselHolder/mask/ziza.toggle(false)
+		$vesselHolder/mask/ziza.update_pos(filled)
 
 func _physics_process(delta):
 	if dragged:
@@ -63,6 +62,7 @@ func _physics_process(delta):
 			$vesselHolder/flow.set_color($vesselHolder/mask.modulate)
 			$vesselHolder/flow.visible = true
 			filled -= delta
+			$vesselHolder/mask/ziza.update_pos(filled)
 	else:
 		$vesselHolder/flow.visible = false
 		if $vesselHolder/mask/ziza.rotation < 0:

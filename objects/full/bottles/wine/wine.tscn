@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnvamg8880m02"]
+
+[ext_resource type="PackedScene" uid="uid://cs02xald28vpd" path="res://objects/complex/vessel/vessel.tscn" id="1_cl6kp"]
+[ext_resource type="Script" path="res://objects/complex/vessel/bottle.gd" id="2_swso4"]
+[ext_resource type="Texture2D" uid="uid://cblwgkgsobomj" path="res://objects/full/bottles/wine/Wine.png" id="3_jy46t"]
+[ext_resource type="PackedScene" uid="uid://ci4pwtdjnum4a" path="res://objects/simple/ziza/ziza.tscn" id="4_axjst"]
+[ext_resource type="PackedScene" uid="uid://y8f1x2hnm7su" path="res://objects/simple/flow/flow.tscn" id="5_d6qhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffrxc"]
+size = Vector2(128.5, 317)
+
+[node name="cognac" type="Node2D"]
+
+[node name="vessel" parent="." instance=ExtResource("1_cl6kp")]
+script = ExtResource("2_swso4")
+liquid_color = Color(0.690196, 0.709804, 0.603922, 0.780392)
+opacity = 0.9
+
+[node name="collider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0, -4.49)
+scale = Vector2(1, 1.075)
+shape = SubResource("RectangleShape2D_ffrxc")
+
+[node name="outlineCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0, -4.49)
+scale = Vector2(1, 1.045)
+shape = SubResource("RectangleShape2D_ffrxc")
+
+[node name="draggableCollider" type="CollisionShape2D" parent="vessel"]
+position = Vector2(0, -4.49)
+scale = Vector2(1, 1.04)
+shape = SubResource("RectangleShape2D_ffrxc")
+
+[node name="sprite" type="Sprite2D" parent="vessel"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_jy46t")
+
+[node name="mask" type="Sprite2D" parent="vessel"]
+clip_children = 1
+scale = Vector2(10, 10)
+texture = ExtResource("3_jy46t")
+
+[node name="ziza" parent="vessel/mask" instance=ExtResource("4_axjst")]
+modulate = Color(0, 0, 0, 0.176471)
+position = Vector2(0, 12.13)
+distance = 25.0
+
+[node name="flow" parent="vessel" instance=ExtResource("5_d6qhk")]
+position = Vector2(76, 56)
