@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://chu3n84tcphno" path="res://objects/full/bottles/champange/Champange.png" id="22_r716v"]
 [ext_resource type="Texture2D" uid="uid://b6luovler2h88" path="res://objects/full/bottles/martini/Martini.png" id="24_cgyvo"]
 [ext_resource type="Texture2D" uid="uid://j8tx4m1hjr63" path="res://objects/full/bottles/cognac/Cognac.png" id="26_xrjcs"]
-[ext_resource type="PackedScene" path="res://canvas/simple/money/money_label.tscn" id="27_fipi8"]
+[ext_resource type="PackedScene" uid="uid://pcy0xrdpnsdb" path="res://canvas/simple/money/money_label.tscn" id="27_fipi8"]
 [ext_resource type="PackedScene" uid="uid://p648t4h3rgch" path="res://objects/full/waterScale/waterScale.tscn" id="28_21h2o"]
 [ext_resource type="AudioStream" uid="uid://c5cd1nlipr01" path="res://canvas/simple/audio/music.wav" id="31_3loig"]
 
