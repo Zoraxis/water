@@ -10,14 +10,22 @@ func updateMoney(value):
 
 var orders = [
 	{
-		"text": "sth strong",
+		"text": "Brown",
+		"strength": 3,
+	},
+	{
+		"text": "Yellow",
+		"strength": 3,
+	},
+	{
+		"text": "White",
 		"strength": 3,
 	}
 ]
 
 var futureOrders = [
 	{
-		"text": "sth very strong",
+		"text": "Blue",
 		"strength": 3,
 	}
 ]
